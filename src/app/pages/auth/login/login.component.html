@@ -1,0 +1,30 @@
+<div class="login-wrapper">
+  <div class="login-block">
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <h4>Login</h4>
+      <div>
+        <mat-form-field class="w-100">
+          <input matInput
+                 placeholder="User"
+                 formControlName="username">
+        </mat-form-field>
+        <mat-error *ngIf="isControlHasError(form.get('username'), 'required')">
+          This field is required
+        </mat-error>
+      </div>
+      <div>
+        <mat-form-field class="w-100">
+          <input matInput
+                 type="password"
+                 placeholder="Password"
+                 formControlName="password"/>
+        </mat-form-field>
+        <mat-error *ngIf="isControlHasError(form.get('password'), 'required')">
+          This field is required
+        </mat-error>
+      </div>
+
+      <button mat-flat-button color="primary" class="w-100" type="submit">Enter</button>
+    </form>
+  </div>
+</div>
