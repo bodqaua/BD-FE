@@ -3,6 +3,7 @@ import {AbstractController} from 'src/app/shared/controllers/Abstract.controller
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from 'src/app/shared/services/auth.service';
 import {ICredentials} from 'src/app/shared/models/auth.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent extends AbstractController implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) {
     super();
   }
@@ -29,13 +31,16 @@ export class LoginComponent extends AbstractController implements OnInit {
     }
 
     const credentials: ICredentials = this.form.value;
-    this.auth.login(credentials).subscribe(console.log);
+    this.auth.login(credentials).subscribe((response) => {
+      this.auth.saveCredentials(credentials);
+      this.router.navigateByUrl('/databases');
+    });
   }
 
   private initForm(): void {
     this.form = this.fb.group({
       username: ['root', Validators.required],
-      password: ['root', Validators.required]
+      password: ['']
     });
   }
 }

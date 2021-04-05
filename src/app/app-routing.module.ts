@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/auth.module').then((m) => m.AuthModule)
   },
   {
+    path: 'databases',
+    loadChildren: () => import('./pages/databases/databases.module').then((m) => m.DatabasesModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: '/login'

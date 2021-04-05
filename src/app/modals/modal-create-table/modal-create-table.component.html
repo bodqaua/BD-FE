@@ -1,0 +1,17 @@
+<h1>Create database</h1>
+
+<div>
+  <form [formGroup]="form">
+    <label>
+      <span>Database name</span>
+      <input matInput formControlName="name">
+    </label>
+    <mat-error *ngIf="isControlHasError(form.get('name'), 'required')">
+      This field is required
+    </mat-error>
+  </form>
+</div>
+
+
+<button mat-button color="warn" (click)="close()">Cancel</button>
+<button mat-button color="primary">Create</button>
