@@ -16,7 +16,9 @@ export const environment = {
   API_URL: 'http://db-be/',
   AUTH_URL: 'login',
   DATABASE_LOAD: 'databases',
-  DATABASE_BASE: 'database/'
+  DATABASE_BASE: 'database/',
+  DATABASE_CREATE: 'database/create/',
+  DATABASE_DELETE: 'database/delete/'
 };
 
 /*

@@ -26,7 +26,7 @@ export class LoginComponent extends AbstractController implements OnInit {
   }
 
   public login(): void {
-    if (!this.validateForm(this.form)) {
+    if (!this.isFormValid(this.form)) {
       return;
     }
 

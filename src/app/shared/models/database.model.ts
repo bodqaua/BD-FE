@@ -10,3 +10,13 @@ export interface TableStructureModel {
   Null: string;
   Type: string;
 }
+
+export enum TTableTypes {
+  INT = 'INT',
+  TEXT = 'TEXT',
+  DATE = 'DATE'
+}
+
+export type TTableFieldType = TTableTypes.INT | TTableTypes.TEXT | TTableTypes.DATE;
+
+export const TableTypes = [TTableTypes.INT, TTableTypes.TEXT, TTableTypes.DATE]

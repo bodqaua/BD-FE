@@ -13,8 +13,17 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService) {
   }
 
+  private static handleError(httpErrorResponse: HttpErrorResponse): Observable<EmptyError> {
+    console.log(httpErrorResponse.error.message);
+    alert(httpErrorResponse.error.message || 'Server error');
+    return EMPTY;
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const credentials: ICredentials = this.auth.getCredentials() || {};
+    let credentials: ICredentials = this.auth.getCredentials() || {};
+    if (req.body.username) {
+      credentials = {};
+    }
     const request = req.clone({
         url: `${this.env.API_URL}${req.url}`,
         body: Object.assign({...req.body}, credentials)
@@ -22,12 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
     );
 
     return next.handle(request).pipe(
-      catchError(this.handleError.bind(this))
+      catchError(AuthInterceptor.handleError.bind(this))
     );
-  }
-
-  private handleError(httpErrorResponse: HttpErrorResponse): Observable<EmptyError> {
-    console.log(httpErrorResponse.error.message);
-    return EMPTY;
   }
 }

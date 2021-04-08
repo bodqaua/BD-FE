@@ -1,16 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ModalCreateTableComponent } from './modal-create-table/modal-create-table.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ModalCreateDatabaseComponent} from './modal-create-database/modal-create-database.component';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ModalsService} from 'src/app/shared/services/modals.service';
-
+import {ModalCreateTableComponent} from './modal-create-table/modal-create-table.component';
+import {ModalCreateTableDataComponent} from './modal-create-table-data/modal-create-table-data.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
-  declarations: [ModalCreateTableComponent],
+  declarations: [
+    ModalCreateDatabaseComponent,
+    ModalCreateTableComponent,
+    ModalCreateTableDataComponent
+  ],
   imports: [
     CommonModule,
     MatInputModule,
@@ -18,10 +25,22 @@ import {ModalsService} from 'src/app/shared/services/modals.service';
     ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [
     {provide: 'ModalService', useClass: ModalsService},
-    ModalCreateTableComponent
+  ],
+  entryComponents: [
+    ModalCreateDatabaseComponent,
+    ModalCreateTableComponent,
+    ModalCreateTableDataComponent
+  ],
+  exports: [
+    ModalCreateDatabaseComponent,
+    ModalCreateTableComponent,
+    ModalCreateTableDataComponent
   ]
 })
-export class ModalsModule { }
+export class ModalsModule {
+}

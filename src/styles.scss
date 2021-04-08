@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  box-sizing: border-box;
+}
 html, body {
   height: 100%;
 }
@@ -33,4 +36,66 @@ body {
   }
 }
 
+.pure-button {
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
 
+.red {
+  color: red;
+}
+
+.action-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  color: #FFFFFF;
+  background: #512da8;
+  box-shadow: 0 0 5px rgba(#512da8, .75);
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: none;
+  transition: .25s;
+
+  &:hover {
+    background: #4527a0;
+    box-shadow: 0 0 10px rgba(#512da8, .75);
+  }
+
+  &:active {
+    background: #311b92;
+  }
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.form-control-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  mat-form-field {
+    padding: 0 12px;
+  }
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+}
