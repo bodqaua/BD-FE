@@ -11,6 +11,8 @@ export interface DatabaseServiceInterface {
   createTable(database: string, tableName: string, tables: any): Observable<string>;
   deleteTable(database: string, tableName: string): Observable<string>;
   loadTableData(database: string, table: string): Observable<any>;
+  insert(database: string, table: string, data: { data: any }): Observable<any>;
+  delete(database: string, table: string, id: number | string): Observable<any>;
 }
 
 export interface ModalServiceInterface {

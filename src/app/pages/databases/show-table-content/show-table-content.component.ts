@@ -1,7 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {DatabaseServiceInterface} from 'src/app/shared/models/services.interface';
+import {DatabaseServiceInterface, ModalServiceInterface} from 'src/app/shared/models/services.interface';
 import {flatMap, map, toArray} from 'rxjs/operators';
+import {ModalCreateTableDataComponent} from 'src/app/modals/modal-create-table-data/modal-create-table-data.component';
 
 @Component({
   selector: 'app-show-table-content',
@@ -17,12 +18,33 @@ export class ShowTableContentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    @Inject('ModalService') private modalService: ModalServiceInterface,
     @Inject('DatabaseService') private databaseService: DatabaseServiceInterface
   ) {
   }
 
   ngOnInit(): void {
     this.parseUrl();
+  }
+
+  public openCreateContentDatabase(): void {
+    this.modalService.openModal(ModalCreateTableDataComponent, {
+      columns: this.displayedColumns,
+      database: this.database,
+      table: this.table
+    }).afterClosed().subscribe(res => {
+      if (!res) {
+        return;
+      }
+      this.loadData();
+      this.loadStructure();
+    });
+  }
+
+  public deleteRecord(id: number | string): void {
+    this.databaseService.delete(this.database, this.table, id).subscribe(res => {
+      this.loadData();
+    });
   }
 
   private parseUrl(): void {

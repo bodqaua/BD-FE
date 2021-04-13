@@ -1,1 +1,20 @@
-<p>modal-create-table-data works!</p>
+<h1>Create Data </h1>
+
+<div>
+  <form [formGroup]="form">
+    <ng-container *ngFor="let control of columns">
+      <mat-form-field class="w-100">
+        <input matInput [formControlName]="control" [placeholder]="control | uppercase">
+        <mat-error *ngIf="isControlHasError(form.get(control), 'required')">
+          This field is required
+        </mat-error>
+      </mat-form-field>
+    </ng-container>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button mat-button color="warn" (click)="close()">Cancel</button>
+  <button mat-button color="primary" (click)="submit()">Create</button>
+</div>
+

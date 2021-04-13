@@ -58,7 +58,6 @@ export class ModalCreateTableComponent extends AbstractController implements OnI
     delete data.name;
     const controls = this.prepareRequest(data);
     this.databaseService.createTable(this.data.databaseName, name, controls).subscribe(res => {
-      console.log(res);
       this.dialogRef.close(true);
     });
   }
