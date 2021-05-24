@@ -15,6 +15,7 @@ export const environment = {
   production: false,
   API_URL: 'http://db-be/',
   AUTH_URL: 'login',
+  AUTH_CREATE_USER: 'user',
   DATABASE_LOAD: 'databases',
   DATABASE_BASE: 'database/',
   DATABASE_CREATE: 'database/create/',

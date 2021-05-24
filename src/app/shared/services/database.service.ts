@@ -56,4 +56,8 @@ export class DatabaseService implements DatabaseServiceInterface {
   public delete(database: string, tableName: string, id: number | string): Observable<string> {
     return this.http.post<string>(`${this.env.DATABASE_BASE}${database}/${tableName}/delete`, {id});
   }
+
+  public fetchDatabaseInfo(): Observable<string> {
+    return this.http.post<string>(this.env.DATABASE_LOAD + '/info', {});
+  }
 }

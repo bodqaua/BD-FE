@@ -1,8 +1,9 @@
-# DbDriver
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
+#To run project:
+- run `npm install`
+- run "ng serve --open"
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Help
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#if some trouble
+- make sure you have node `v14.16.0`;
+- make sure you have npm `6.14.11`;
+- if you have error with Angular CLI - try `npm run start` or  
+inst all angular CLI https://angular.io/cli

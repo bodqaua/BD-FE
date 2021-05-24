@@ -10,13 +10,15 @@ import {ModalCreateTableComponent} from './modal-create-table/modal-create-table
 import {ModalCreateTableDataComponent} from './modal-create-table-data/modal-create-table-data.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ModalCreateUserComponent } from './modal-create-user/modal-create-user.component';
 
 
 @NgModule({
   declarations: [
     ModalCreateDatabaseComponent,
     ModalCreateTableComponent,
-    ModalCreateTableDataComponent
+    ModalCreateTableDataComponent,
+    ModalCreateUserComponent
   ],
   imports: [
     CommonModule,

@@ -13,6 +13,7 @@ export interface DatabaseServiceInterface {
   loadTableData(database: string, table: string): Observable<any>;
   insert(database: string, table: string, data: { data: any }): Observable<any>;
   delete(database: string, table: string, id: number | string): Observable<any>;
+  fetchDatabaseInfo(): Observable<string>;
 }
 
 export interface ModalServiceInterface {

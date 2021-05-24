@@ -77,6 +77,48 @@ body {
   &:active {
     background: #311b92;
   }
+
+  &.print {
+    right: 92px;
+    background: #00897b;
+
+    &:hover {
+      background: #00796b;
+      box-shadow: 0 0 10px rgba(#00897b, .75);
+    }
+
+    &:active {
+      background: #004d40;
+    }
+  }
+
+  &.logout {
+    right: 164px;
+    background: #f4511e;
+
+    &:hover {
+      background: #e64a19;
+      box-shadow: 0 0 10px rgba(#e64a19, .75);
+    }
+
+    &:active {
+      background: #bf360c;
+    }
+  }
+
+  &.user {
+    right: 234px;
+    background: #4caf50;
+
+    &:hover {
+      background: #388e3c;
+      box-shadow: 0 0 10px rgba(#388e3c, .75);
+    }
+
+    &:active {
+      background: #1b5e20;
+    }
+  }
 }
 
 .modal-footer {

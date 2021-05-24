@@ -1,0 +1,25 @@
+<h1>Create user</h1>
+
+<div *ngIf="form">
+  <form [formGroup]="form">
+    <mat-form-field class="w-100">
+      <input matInput formControlName="username" placeholder="Username">
+      <mat-error *ngIf="isControlHasError(form.get('username'), 'required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <input matInput formControlName="password" placeholder="Password">
+      <mat-error *ngIf="isControlHasError(form.get('password'), 'required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button mat-button color="warn" (click)="close()">Cancel</button>
+  <button mat-button color="primary" (click)="submit()">Create</button>
+</div>
+
+

@@ -23,11 +23,26 @@ export class AuthService {
     return this.http.post(this.env.AUTH_URL, credentials);
   }
 
+  public getUserName(): string {
+    return this.getCredentials().username;
+  }
+
+  public logout(): void {
+    localStorage.removeItem(this.credentialsKey);
+  }
+
   public saveCredentials(credentials: ICredentials): void {
     localStorage.setItem(this.credentialsKey, JSON.stringify(credentials));
   }
 
   public getCredentials(): ICredentials | undefined {
     return JSON.parse(localStorage.getItem(this.credentialsKey));
+  }
+
+  public createUser(username: string, password: string): Observable<any> {
+    return this.http.post(this.env.AUTH_CREATE_USER, {
+      new_user_name: username,
+      new_user_password: password
+    });
   }
 }

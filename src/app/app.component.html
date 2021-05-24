@@ -1,3 +1,38 @@
 <div class="app-wrapper">
   <router-outlet></router-outlet>
+  <div class="print action-button" (click)="print()" *ngIf="auth.isLogged()">
+    <i class="fas fa-print"></i>
+  </div>
+  <div class="logout action-button" (click)="logout()" *ngIf="auth.isLogged()">
+    <i class="fas fa-sign-out-alt"></i>
+  </div>
+
+  <div class="user action-button" (click)="createUser()" *ngIf="auth.isLogged()">
+    <i class="fas fa-user"></i>
+  </div>
+</div>
+
+<div id="print" *ngIf="tableData">
+  <h1>Info</h1>
+
+  <h2>User: {{ auth.getUserName() }}</h2>
+
+  <p>Count of databases: {{ tableData.db_counter }}</p>
+  <div>
+    <h2>Users: </h2>
+    <ul>
+      <li *ngFor="let db of tableData.users">
+        {{ db.name }}
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h2>Databases: </h2>
+    <ul>
+      <li *ngFor="let db of tableData.databases">
+        {{ db.name }}
+      </li>
+    </ul>
+  </div>
+
 </div>

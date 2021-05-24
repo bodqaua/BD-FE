@@ -23,6 +23,9 @@ export abstract class AbstractController {
   }
 
   public isControlHasError(control: AbstractControl, validator: string): boolean {
+    if (!control) {
+      return true;
+    }
     return control.hasError(validator) && control.touched;
   }
 

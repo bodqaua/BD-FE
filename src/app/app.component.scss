@@ -1,0 +1,14 @@
+#print {
+  padding: 24px;
+  display: none;
+}
+
+@media print {
+  #print {
+    display: block;
+  }
+
+  .app-wrapper {
+    display: none;
+  }
+}
