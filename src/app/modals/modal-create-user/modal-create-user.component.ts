@@ -36,7 +36,7 @@ export class ModalCreateUserComponent extends AbstractController implements OnIn
     }
 
     const data = this.form.value;
-    this.auth.createUser(data.username, data.password).subscribe(() => {
+    this.auth.createUser(data.username, data.password, data.isAdmin).subscribe(() => {
         alert('User created');
         this.dialogRef.close();
       }, () => {
@@ -48,7 +48,8 @@ export class ModalCreateUserComponent extends AbstractController implements OnIn
   private initForm(): void {
     this.form = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      isAdmin: [false]
     });
   }
 }

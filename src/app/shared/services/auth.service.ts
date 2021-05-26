@@ -16,7 +16,7 @@ export class AuthService {
   ) {
   }
   public isLogged(): boolean {
-    return !!this.getCredentials();
+    return Boolean(this.getCredentials());
   }
 
   public login(credentials: ICredentials): Observable<any> {
@@ -39,10 +39,11 @@ export class AuthService {
     return JSON.parse(localStorage.getItem(this.credentialsKey));
   }
 
-  public createUser(username: string, password: string): Observable<any> {
+  public createUser(username: string, password: string, isAdmin: boolean): Observable<any> {
     return this.http.post(this.env.AUTH_CREATE_USER, {
       new_user_name: username,
-      new_user_password: password
+      new_user_password: password,
+      is_admin: isAdmin
     });
   }
 }

@@ -23,6 +23,7 @@ export class LoginComponent extends AbstractController implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.auth.logout();
   }
 
   public login(): void {
